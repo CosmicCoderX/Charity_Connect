@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CharityConnect – Bridging Hearts, Changing Lives</title>
+    <script src="https://kit.fontawesome.com/4d88d8f59e.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="/assets/images/donation_favicon_logo.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="/assets/images/donation_favicon_logo.png" alt="CharityConnect Logo" class="logoImg">
+            <h1 class="logoName">CharityConnect</h1>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="open-sidebar-button" aria-label="Open Sidebar" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <!-- Sidebar Navigation -->
+        <nav id="navbar">
+            <ul class="nav-links">
+                <li>
+                    <button id="close-sidebar-button" aria-label="Close Sidebar">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#causes">Our Causes</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="#volunteer">Volunteer</a></li>
+                <li><a href="#donate" class="donate-btn">Donate Now</a></li>
+                <li><a href="#logout" class="logout-btn" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+
+        <!-- Overlay (click to close) -->
+        <div id="overlay" aria-hidden="true"></div>
+    </header>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <video autoplay muted loop class="hero-video">
+            <source src="/assets/videos/8076877-uhd_4096_2160_25fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h1>Bridging Hearts, Changing Lives</h1>
+            <p>Join us in making a difference for those in need.</p>
+            <a href="#donate" class="btn">Donate Now</a>
+            <a href="#membership" class="btn">Join an NGO</a>
+        </div>
+    </header>
+
+    <!-- Impact Counter -->
+    <section class="impact">
+        <h2>Our Impact</h2>
+        <div class="stats">
+            <div class="stat-item">
+                <i class="fas fa-donate"></i>
+                <strong data-target="10">₹0</strong>
+                <span>Donated</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-handshake"></i>
+                <strong data-target="200">0</strong>
+                <span>NGOs Partnered</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-heart"></i>
+                <strong data-target="50">0</strong>
+                <span>Lives Touched</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Featured Causes -->
+    <section class="causes" id="donate">
+        <h2>Support a Cause</h2>
+        <div class="cause-list">
+            <div class="cause">
+                <h3>Slum Rehabilitation</h3>
+                <p>Help improve living conditions and provide essential resources for slum dwellers.</p>
+                <a href="#" class="btn">Donate</a>
+            </div>
+            <div class="cause">
+                <h3>Women Empowerment</h3>
+                <p>Support education, skill development, and safety initiatives for women.</p>
+                <a href="#" class="btn">Donate</a>
+            </div>
+            <div class="cause">
+                <h3>Elderly Care</h3>
+                <p>Provide assistance, healthcare, and companionship for senior citizens.</p>
+                <a href="#" class="btn">Donate</a>
+            </div>
+            <div class="cause">
+                <h3>Disaster Relief</h3>
+                <p>Help communities recover from natural calamities with urgent aid and support.</p>
+                <a href="#" class="btn">Donate</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+<section class="about" id="about">
+    <div class="about-container">
+        <div class="about-text">
+            <h2>About Us</h2>
+            <p>CharityConnect is dedicated to bridging the gap between donors and NGOs, ensuring that every contribution makes a meaningful impact. Our mission is to create a transparent, efficient, and accessible platform for charitable giving.</p>
+            <p>By partnering with numerous NGOs, we empower communities, support vital causes, and bring hope to those in need. Join us in making a difference today.</p>
+            <a href="#" class="btn">Learn More</a>
+        </div>
+        <div class="about-image">
+            <img src="/assets/images/tim-marshall-cAtzHUz7Z8g-unsplash.jpg" alt="About CharityConnect">
+        </div>
+    </div>
+</section>
+
+    <!-- NGO Memberships -->
+    <section class="membership" id="membership">
+        <h2>Become a Member</h2>
+        <p>Join an NGO and make a difference firsthand.</p>
+
+        <div class="membership-options">
+            <div class="membership-card">
+                <h3>Women Empowerment</h3>
+                <p>Support and uplift women by providing education and resources.</p>
+                <a href="#" class="btn">Join Now</a>
+            </div>
+            <div class="membership-card">
+                <h3>Child Welfare</h3>
+                <p>Help improve the lives of underprivileged children with education and care.</p>
+                <a href="#" class="btn">Join Now</a>
+            </div>
+            <div class="membership-card">
+                <h3>Disaster Relief</h3>
+                <p>Provide aid and support to communities affected by natural disasters.</p>
+                <a href="#" class="btn">Join Now</a>
+            </div>
+            <div class="membership-card">
+                <h3>Cancer Patients Support</h3>
+                <p>Assist cancer patients with financial aid, awareness, and medical support.</p>
+                <a href="#" class="btn">Join Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="stories">
+        <h2>Success Stories</h2>
+        <p>See the real impact of your contributions.</p>
+
+        <div class="story-marquee">
+            <div class="story-track">
+                <div class="story">
+                    <p>"Thanks to NGO, I received an education and now work as a teacher."</p>
+                    <h3>- Ayesha Khan</h3>
+                </div>
+                <div class="story">
+                    <p>"Disaster relief efforts helped rebuild my village after the floods."</p>
+                    <h3>- Rahul Sharma</h3>
+                </div>
+                <div class="story">
+                    <p>"Medical aid from donors saved my daughter’s life."</p>
+                    <h3>- Sunita Patel</h3>
+                </div>
+                <div class="story">
+                    <p>"Women empowerment programs helped me start my own business."</p>
+                    <h3>- Priya Desai</h3>
+                </div>
+                <div class="story">
+                    <p>"Thanks to scholarships, I am now pursuing my dream career in medicine."</p>
+                    <h3>- Vikram Mehta</h3>
+                </div>
+                <div class="story">
+                    <p>"Your donations provided food and shelter for my family in difficult times."</p>
+                    <h3>- Meera Joshi</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Involved -->
+    <section class="get-involved">
+        <h2>Get Involved</h2>
+        <p>Make an impact by volunteering your time or starting a fundraising campaign.</p>
+        <div class="involvement-options">
+            <a href="#" class="btn">Volunteer</a>
+            <a href="#" class="btn">Fundraise</a>
+        </div>
+    </section>
+
+    <!-- Contact Us -->
+    <footer class="contact">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:support@charityconnect.com">support@charityconnect.com</a> | Phone: <a
+                href="tel:+911234567890">+91-1234567890</a></p>
+        <p>Follow us on social media:</p>
+        <div class="social-icons">
+            <a href="#" class="icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="icon"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+
+    <script src="/script.js"></script>
+</body>
+</html>
