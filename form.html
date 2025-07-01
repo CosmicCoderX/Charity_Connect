@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/4d88d8f59e.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="/assets/images/donation_favicon_logo.png" type="image/png">
+    <link rel="stylesheet" href="/formStyles.css">
+    <title>CharityConnect – Bridging Hearts, Changing Lives</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form id="signUpForm">
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <a href="https://www.facebook.com/" class="social"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.google.com/" class="social"><i class="fa-brands fa-google"></i></a>
+                    <a href="https://www.linkedin.com/" class="social"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+                <input type="text" id="name" placeholder="Name" required />
+                <span class="error" id="nameError"></span>
+                <input type="tel" id="phone" placeholder="Phone Number" required />
+                <span class="error" id="phoneError"></span>
+                <input type="email" id="email" placeholder="Email" required />
+                <span class="error" id="emailError"></span>
+                <input type="password" id="password" placeholder="Password" required />
+                <span class="error" id="passwordError"></span>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form id="signInForm">
+                <h1>Sign in</h1>
+                <div class="social-container">
+                    <a href="https://www.facebook.com/" class="social"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.google.com/" class="social"><i class="fa-brands fa-google"></i></a>
+                    <a href="https://www.linkedin.com/" class="social"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your account</span>
+                <input type="email" placeholder="Email" required />
+                <input type="password" placeholder="Password" required />
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="welcome" class="welcome-message">Welcome to our platform!</div>
+    <script src="/formScript.js"></script>
+</body>
+
+</html>
