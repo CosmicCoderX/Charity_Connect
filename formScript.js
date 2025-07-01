@@ -135,7 +135,7 @@ const showWelcomeAndRedirect = () => {
     
     // Wait for 2 seconds before redirecting
     setTimeout(() => {
-        window.location.href = "homepage-main.html";
+        window.location.href = "index.html";
     }, 2000);
 };
 
