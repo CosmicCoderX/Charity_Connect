@@ -38,6 +38,5 @@
 ---
 
 **Tech Stack**: HTML5, CSS3, JavaScript  
-**License**: MIT  
 
 🔗 *Frontend-only demo - no backend required*
