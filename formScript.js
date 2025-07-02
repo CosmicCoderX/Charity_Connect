@@ -2,12 +2,78 @@ const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
 
+// Function to check if we're on mobile
+const isMobile = () => window.innerWidth <= 768;
+
+// Function to handle form switching
+const switchForms = (showSignUp) => {
+    if (isMobile()) {
+        // Mobile behavior - show/hide forms directly
+        const signInContainer = document.querySelector('.sign-in-container');
+        const signUpContainer = document.querySelector('.sign-up-container');
+        const overlayLeft = document.querySelector('.overlay-left');
+        const overlayRight = document.querySelector('.overlay-right');
+
+        if (showSignUp) {
+            signInContainer.classList.remove('active');
+            signUpContainer.classList.add('active');
+            overlayLeft.classList.add('active');
+            overlayRight.classList.remove('active');
+        } else {
+            signUpContainer.classList.remove('active');
+            signInContainer.classList.add('active');
+            overlayRight.classList.add('active');
+            overlayLeft.classList.remove('active');
+        }
+    } else {
+        // Desktop behavior - use the original sliding animation
+        if (showSignUp) {
+            container.classList.add("right-panel-active");
+        } else {
+            container.classList.remove("right-panel-active");
+        }
+    }
+};
+
+// Initialize the form display
+const initializeForms = () => {
+    if (isMobile()) {
+        // Show sign-in form by default on mobile
+        document.querySelector('.sign-in-container').classList.add('active');
+        document.querySelector('.overlay-right').classList.add('active');
+    }
+};
+
 signUpButton.addEventListener('click', () => {
-    container.classList.add("right-panel-active");
+    switchForms(true);
 });
 
 signInButton.addEventListener('click', () => {
-    container.classList.remove("right-panel-active");
+    switchForms(false);
+});
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    // Reset classes when switching between mobile and desktop
+    const signInContainer = document.querySelector('.sign-in-container');
+    const signUpContainer = document.querySelector('.sign-up-container');
+    const overlayLeft = document.querySelector('.overlay-left');
+    const overlayRight = document.querySelector('.overlay-right');
+
+    if (isMobile()) {
+        // Reset to mobile view
+        container.classList.remove("right-panel-active");
+        signInContainer.classList.add('active');
+        signUpContainer.classList.remove('active');
+        overlayLeft.classList.remove('active');
+        overlayRight.classList.add('active');
+    } else {
+        // Reset mobile classes for desktop
+        signInContainer.classList.remove('active');
+        signUpContainer.classList.remove('active');
+        overlayLeft.classList.remove('active');
+        overlayRight.classList.remove('active');
+    }
 });
 
 // Password validation helper functions
@@ -27,8 +93,8 @@ const getPasswordErrorMessage = (value) => {
     if (!passwordValidation.hasNumber(value)) errors.push("one number");
     if (!passwordValidation.hasSpecialChar(value)) errors.push("one special character");
     if (!passwordValidation.isLongEnough(value)) errors.push("minimum 6 characters");
-    
-    return errors.length > 0 
+
+    return errors.length > 0
         ? `Password must contain ${errors.join(", ")}`
         : "";
 };
@@ -94,8 +160,8 @@ const setupValidationListeners = (formRules) => {
             // Add input event listener
             rule.element.addEventListener('input', () => {
                 const isValid = rule.validate(rule.element.value);
-                const errorMessage = rule.getErrorMessage 
-                    ? rule.getErrorMessage(rule.element.value) 
+                const errorMessage = rule.getErrorMessage
+                    ? rule.getErrorMessage(rule.element.value)
                     : rule.errorMessage;
                 rule.errorElement.textContent = isValid ? '' : errorMessage;
                 rule.errorElement.style.display = isValid ? 'none' : 'block';
@@ -104,8 +170,8 @@ const setupValidationListeners = (formRules) => {
             // Add blur event listener
             rule.element.addEventListener('blur', () => {
                 const isValid = rule.validate(rule.element.value);
-                const errorMessage = rule.getErrorMessage 
-                    ? rule.getErrorMessage(rule.element.value) 
+                const errorMessage = rule.getErrorMessage
+                    ? rule.getErrorMessage(rule.element.value)
                     : rule.errorMessage;
                 rule.errorElement.textContent = isValid ? '' : errorMessage;
                 rule.errorElement.style.display = isValid ? 'none' : 'block';
@@ -122,17 +188,17 @@ setupValidationListeners(validationRules.signIn);
 const showWelcomeAndRedirect = () => {
     // Hide the container
     document.getElementById('container').style.display = 'none';
-    
+
     // Show and animate welcome message
     const welcomeMessage = document.getElementById('welcome');
     welcomeMessage.style.display = 'block';
     welcomeMessage.style.opacity = '0';
-    
+
     // Fade in animation
     setTimeout(() => {
         welcomeMessage.style.opacity = '1';
     }, 100);
-    
+
     // Wait for 2 seconds before redirecting
     setTimeout(() => {
         window.location.href = "index.html";
@@ -140,15 +206,15 @@ const showWelcomeAndRedirect = () => {
 };
 
 // Handle sign up form submission
-document.getElementById("signUpForm").addEventListener("submit", function(event) {
+document.getElementById("signUpForm").addEventListener("submit", function (event) {
     event.preventDefault();
     let isFormValid = true;
 
     Object.values(validationRules.signUp).forEach(rule => {
         if (rule.element && rule.errorElement) {
             const isValid = rule.validate(rule.element.value);
-            const errorMessage = rule.getErrorMessage 
-                ? rule.getErrorMessage(rule.element.value) 
+            const errorMessage = rule.getErrorMessage
+                ? rule.getErrorMessage(rule.element.value)
                 : rule.errorMessage;
             rule.errorElement.textContent = isValid ? '' : errorMessage;
             rule.errorElement.style.display = isValid ? 'none' : 'block';
@@ -162,7 +228,7 @@ document.getElementById("signUpForm").addEventListener("submit", function(event)
 });
 
 // Handle sign in form submission with authentication
-document.getElementById("signInForm").addEventListener("submit", function(event) {
+document.getElementById("signInForm").addEventListener("submit", function (event) {
     event.preventDefault();
     let isFormValid = true;
 
@@ -170,8 +236,8 @@ document.getElementById("signInForm").addEventListener("submit", function(event)
     Object.values(validationRules.signIn).forEach(rule => {
         if (rule.element && rule.errorElement) {
             const isValid = rule.validate(rule.element.value);
-            const errorMessage = rule.getErrorMessage 
-                ? rule.getErrorMessage(rule.element.value) 
+            const errorMessage = rule.getErrorMessage
+                ? rule.getErrorMessage(rule.element.value)
                 : rule.errorMessage;
             rule.errorElement.textContent = isValid ? '' : errorMessage;
             rule.errorElement.style.display = isValid ? 'none' : 'block';
@@ -194,16 +260,19 @@ document.getElementById("signInForm").addEventListener("submit", function(event)
             credentialsError.textContent = "Invalid email or password!";
             credentialsError.style.display = 'block';
             credentialsError.style.marginBottom = '10px';
-            
+
             // Remove any existing credentials error message
             const existingError = document.querySelector('.sign-in-container .credentials-error');
             if (existingError) {
                 existingError.remove();
             }
-            
+
             // Add the new error message before the button
             const signInButton = document.querySelector('.sign-in-container button');
             signInButton.parentNode.insertBefore(credentialsError, signInButton);
         }
     }
 });
+
+// Initialize forms on page load
+document.addEventListener('DOMContentLoaded', initializeForms);
